@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log-In Feature</title>
+    <style>
+        /* Overall Page Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0; /* Light gray */
+        }
+
+        /* Login Container Styling */
+        .login-container {
+            background: #fff; /* White background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Shadow effect */
+            width: 300px;
+            text-align: center;
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+            color: #333; /* Dark gray for the title */
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9; /* Input field gray */
+            color: #000; /* Black text */
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #333; /* Dark gray */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login-container button:hover {
+            background-color: #555; /* Lighter gray on hover */
+        }
+
+        .forgot-password {
+            margin-top: 10px;
+            display: block;
+            color: #007BFF; /* Blue clickable link */
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+
+        .message {
+            margin-top: 15px;
+            font-size: 1em;
+            color: #28a745; /* Green for success */
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Log In</h2>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button onclick="handleLogin()">Log In</button>
+        <a href="#" class="forgot-password" onclick="handleForgotPassword()">Forgot Password?</a>
+        <p id="message" class="message"></p>
+    </div>
+
+    <script>
+        // Log-In Functionality
+        function handleLogin() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Simple validation
+            if (email && password) {
+                document.getElementById('message').textContent = 'Log in successful!';
+                document.getElementById('message').style.color = '#28a745'; // Green success
+            } else {
+                document.getElementById('message').textContent = 'Please fill in all fields.';
+                document.getElementById('message').style.color = 'red'; // Red error
+            }
+        }
+
+        // Forgot Password Functionality
+        function handleForgotPassword() {
+            // Simulate redirect or recovery action
+            const userChoice = confirm("Forgot Password? Would you like to proceed to the recovery page?");
+            if (userChoice) {
+                alert("Redirecting to the password recovery page...");
+                // Simulate a redirect (you can replace this later with an actual recovery page URL)
+                window.location.href = "#"; // Prevents 404 during testing
+            } else {
+                alert("Action canceled.");
+            }
+        }
+    </script>
+</body>
+</html>
